@@ -1,0 +1,9 @@
+%Enter file contents here
+% The goal of this code is to help automatically extract the environmental
+% variables from the master excel folder
+% Loren and Jin, 2014 November, University of Arizona
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+clc 
+clear
+
