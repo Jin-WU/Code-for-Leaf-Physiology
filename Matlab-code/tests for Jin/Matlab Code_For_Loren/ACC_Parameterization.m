@@ -21,19 +21,19 @@ Vcmax0=Vcmax0*expansion_rate;
 Jmax0=Jmax0*expansion_rate;
 TPU0=Jmax0*expansion_rate;
 
-lbvc=Vcmax0-30;   % Low boundary of Vcmax
+lbvc=Vcmax0-50;   % Low boundary of Vcmax
 if lbvc<0
 lbvc=0;
 end 
-lbJ=Jmax0-40;    % Low boundary of Jmax
+lbJ=Jmax0-60;    % Low boundary of Jmax
 if lbJ<0
 lbJ=0;
 end 
-bound(1,:)=[.1 lbvc 0  lbJ TPU0-2];
-bound(2,:)=[30 Vcmax0+30 10 Jmax0+70 TPU0+3];
+bound(1,:)=[.1 lbvc 0  lbJ TPU0-10];
+bound(2,:)=[30 Vcmax0+70 20 Jmax0+70 TPU0+10];
  
 sca_var=10^(-20);
-popusize=150;                   %%% Population sizes
+popusize=200;                   %%% Population sizes
 gen=1;
 
 [inpopu,bit_n]=encode(bound,sca_var,popusize);  %generate initial population
