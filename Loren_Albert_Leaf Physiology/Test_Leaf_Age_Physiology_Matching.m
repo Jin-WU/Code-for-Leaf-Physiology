@@ -34,10 +34,12 @@ for i=3:length(raw1(:,1))
     
     if length(ind2)>0
        Output2(i,1:length(raw2(1,:)))=raw2(Range2(ind2(1)),:);
+       Output2(i,1)=a;
     end
     
     if length(ind2)>0
        Output3(i,1:length(raw3(1,:)))=raw3(Range3(ind3(1)),:);
+       Output3(i,1)=a;
     end
    
     clear a a1 a2 ind2 ind3 
