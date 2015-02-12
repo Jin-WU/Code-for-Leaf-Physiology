@@ -7,6 +7,19 @@ function test=species_specific_leaf_physiology_display(Physiology, SPArray, SPID
 %% Mat2--Age and Physiology Parameters
 %% Flexibility--define how strict for the quality control
 
+%% Histogram analysis for diagnosing the distribution key variables
+figure('color','white'); subplot(2,2,1); hist(Physiology(:,24),20); xlabel('R2'); ylabel('Frequency'); subplot(2,2,2); hist(Physiology(:,25),20); xlabel('RMSE'); ylabel('Frequency'); subplot(2,2,3); hist(Physiology(:,58),20); xlabel('RH'); ylabel('Frequency'); subplot(2,2,4); hist(Physiology(:,48),20); xlabel('conductance'); ylabel('frequency'); 
+
+clear ind Physiologyx
+ind=find(Physiology(:,25)<1);
+Physiologyx=Physiology(ind,:);
+figure('color','white'); subplot(2,2,1); hist(Physiologyx(:,24),20); xlabel('R2'); ylabel('Frequency'); 
+subplot(2,2,2); hist(Physiologyx(:,25),20); xlabel('RMSE'); ylabel('Frequency'); 
+subplot(2,2,3); hist(Physiologyx(:,58),20); xlabel('RH'); ylabel('Frequency'); 
+subplot(2,2,4); hist(Physiologyx(:,48),20); xlabel('conductance'); ylabel('frequency'); 
+
+
+
 
 %% The Index for Mat1
 % 1--Leaf T; 2--Leaf T std; 3--QC-code; 4--Light Environment

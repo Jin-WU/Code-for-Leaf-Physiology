@@ -3,8 +3,10 @@ function test=leaf_physiology_display(physiology,  Str)
 %% 1--Leaf Age Index; 2--Vcmax; 3--Jmax, 4--TPU, 5--Dark Respiration
 y=physiology;
 
+ind_age=find(y(:,1)>0);
+
 folder='.\Physiology_Age\';
-if length(physiology(:,1))>0
+if length(ind_age)>0
 %     y_Y=y(y(:,1)==1,:); %% Young Leaves
 %     y_M=y(y(:,1)==2,:); %% Mature Leaves
 %     y_O=y(y(:,1)==3,:); %% Old Leaves
@@ -18,7 +20,7 @@ if length(physiology(:,1))>0
     
     ymin=min(y(:,2));
     ymax=max(y(:,2));
-    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)]);
+    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)+1e-6*ymin]);
     title(Str,'fontsize',16);
     
     saveas(1,[folder Str '-Vcmax']);
@@ -34,7 +36,7 @@ if length(physiology(:,1))>0
     
     ymin=min(y(:,3));
     ymax=max(y(:,3));
-    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)]);
+    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)+1e-6*ymin]);
     title(Str,'fontsize',16);
     
     saveas(1,[folder Str '-Jmax']);
@@ -51,7 +53,7 @@ if length(physiology(:,1))>0
     
     ymin=min(y(:,4));
     ymax=max(y(:,4));
-    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)]);
+    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)+1e-6*ymin]);
     title(Str,'fontsize',16);
     
     saveas(1,[folder Str '-TPU']);
@@ -68,7 +70,7 @@ if length(physiology(:,1))>0
     
     ymin=min(y(:,5));
     ymax=max(y(:,5));
-    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)]);
+    axis([0 4 ymin-0.1*(ymax-ymin) ymax+0.1*(ymax-ymin)+1e-6*ymin+1e-6*ymin]);
     title(Str,'fontsize',16);
     
     saveas(1,[folder Str '-Respiration']);
@@ -79,7 +81,7 @@ end
 
 
 
-if length(physiology)>0
+if length(ind_age)>0
     y_Y=y(y(:,1)==1,:); %% Young Leaves
     y_M=y(y(:,1)==2,:); %% Mature Leaves
     y_O=y(y(:,1)==3,:); %% Old Leaves
